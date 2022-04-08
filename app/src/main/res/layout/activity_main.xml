@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#000">
+
+    <LinearLayout
+        android:id="@+id/inputsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp">
+
+        <EditText
+            android:id="@+id/runningDistanceEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="false"
+            android:hint="@string/distance_ran"
+            android:inputType="number"
+            android:textColor="#FFEB3B"
+            android:textColorHint="#86FFEB3B"
+            android:backgroundTint="#FFEB3B"/>
+
+        <EditText
+            android:id="@+id/swimmingDistanceEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="false"
+            android:hint="@string/distance_swum"
+            android:inputType="number"
+            android:textColor="#FFEB3B"
+            android:textColorHint="#86FFEB3B"
+            android:backgroundTint="#FFEB3B"/>
+
+        <EditText
+            android:id="@+id/calorieIntakeEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="false"
+            android:hint="@string/calorie_intake"
+            android:inputType="number"
+            android:textColor="#FFEB3B"
+            android:textColorHint="#86FFEB3B"
+            android:backgroundTint="#FFEB3B"/>
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:textColor="#000"
+            android:backgroundTint="#FFEB3B"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/statisticsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputsLayout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/avg_running_distance"
+            android:textAlignment="center"
+            android:textColor="#FFEB3B"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/runningDistanceTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#FFEB3B"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/avg_swimming_distance"
+            android:textAlignment="center"
+            android:textColor="#FFEB3B"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/swimmingDistanceTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#FFEB3B"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/avg_calorie_intake"
+            android:textAlignment="center"
+            android:textColor="#FFEB3B"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/calorieIntakeTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#FFEB3B"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Developed by Tsotne Aburjania"
+        android:textAlignment="center"
+        android:textColor="#88FFEB3B"
+        android:textSize="11sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

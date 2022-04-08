@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PersonalHealthApplication</string>
+    <string name="save">SAVE</string>
+    <string name="calorie_intake">Calorie intake</string>
+    <string name="distance_swum">Distance swum (km)</string>
+    <string name="distance_ran">Distance ran (km)</string>
+    <string name="avg_running_distance">AVG running distance: </string>
+    <string name="avg_swimming_distance">AVG swimming distance: </string>
+    <string name="avg_calorie_intake">AVG calorie intake: </string>
+</resources>
