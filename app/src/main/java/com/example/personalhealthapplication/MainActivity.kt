@@ -14,13 +14,11 @@ import com.example.personalhealthapplication.data.AppDatabase
 import com.example.personalhealthapplication.data.Record
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import kotlin.math.sign
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var records: List<Record>
-    var avgRunDist= 0
-    var avgSwimDist = 0
-    var avgCalIntake = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +62,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getAllAverages(db: AppDatabase, executor: ExecutorService, handler: Handler){
+        var avgRunDist= 0
+        var avgSwimDist = 0
+        var avgCalIntake = 0
         executor.execute {
             records = db.recordDao().getAll()
             val runDistRecords: List<Int?> = records.map { it.runningDistance }.toList()
@@ -86,9 +87,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             handler.post {
-                findViewById<TextView>(R.id.runningDistanceTv).text = avgRunDist.toString()
-                findViewById<TextView>(R.id.swimmingDistanceTv).text = avgSwimDist.toString()
-                findViewById<TextView>(R.id.calorieIntakeTv).text = avgCalIntake.toString()
+                if (runDistRecords.isNotEmpty() && swimDistRecords.isNotEmpty() && calIntakeRecords.isNotEmpty()){
+                    findViewById<TextView>(R.id.runningDistanceTv).text = (avgRunDist / runDistRecords.size).toString()
+                    findViewById<TextView>(R.id.swimmingDistanceTv).text = (avgSwimDist / swimDistRecords.size).toString()
+                    findViewById<TextView>(R.id.calorieIntakeTv).text = (avgCalIntake / calIntakeRecords.size).toString()
+                }
+
+                findViewById<TextView>(R.id.totalRunningDistanceTv).text = avgRunDist.toString()
             }
         }
     }
